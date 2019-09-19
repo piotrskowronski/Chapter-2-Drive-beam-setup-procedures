@@ -1,0 +1,86 @@
+\section{Linac and CT line}
+
+RF pulse comression setup?
+
+
+\begin{enumerate}
+
+\item
+Bend CL.BHB1040 was set to direct the beam towards CLS dump
+assuming the nominal beam energy at this point of the linac.
+\item
+Iterating for each girder, phases of the cavities were adjusted to find maximum beam loading
+(minimum power measured at structures output)
+and orbit corrected manually to get maximum transmission.
+In rare cases when losses were still observed 
+quadrupoles at girders 5 and 6 were manually adjusted to minimize the losses.
+Alternatively all the quadrupoles were scaled up or down.
+\item
+Powering of CL.BHB1040 bend was adjusted to find the beam in the middle 
+of screen \texttt{CLS.MTV1050} and of segmented dump \texttt{CLS.SDU0442}.
+Beam energy was calculated from this value using the magnet excitation curve.
+It was important to verify that the orbit before the bend is well centered
+to minimize the error on the energy measurement. This was achieved not only by 
+looking at the BPM readings but also at orbit sensitivity to changes
+of powering of the three upstream quadrupoles.
+\item
+Energy gain of each accelerating structure was estimated from their measured input power
+and the beam current using a dedicated cumputer program.
+Having beam energy profile along the linac powering of the quadrupoles was adjusted.
+\item
+Quadrupole scan with \texttt{CLS.MTV1026} revealed Twiss parameters at quadrupole CL.QDB1005.
+\item
+MADX was used to propagate \textbeta-function towards the injector and
+to rematch quadrupoles from girder 6 to 9 to correct the \textbeta-beating.
+\item
+Automatic \ac{DFS} was performed.
+\item
+Phasing of the accelerating cavities was adjusted to minimize energy spread
+measured with the segmented dump. 
+To measure the energy spread the beam spot observed at the screen in the spectrometer was 
+first minimized in the horizontal plane using the three quadrupoles on girder 10 
+assuring that it is not too big in the verical one.
+The energy spread measurement didn't have enough resolution
+to be sensitive to a single cavity adjustments within the required resolution.
+Instead, phases of all the accelerating structures in the linac were shifted together 
+from the values corresponding to the maximum beam loading.
+Usually it was around 3-4 degrees.
+\item
+At this point the injector was fine tuned to eventually further reduce emittance and energy spread
+because the measurements at this location had better resolution compared to the ones at the end of the injector.
+In case any improvements were implemented the procedure for the linac setup was repeated.
+\item
+Using the results of quadrupole scan the powering of the quadrupoles on girders 10 to 15 
+was rematched using a dedicated MADX script. 
+\item
+The beam was directed towards the CTS dump. The same way as in the first part of the linac,
+phases of the accelerating structures and orbit correctors were setup girder after girder.
+\item
+Twiss parameters were measured with quadrupolar scan using screen \texttt{CT.MTV0435}
+and \textbeta-beating corrected adjusting the upstream CT line quadrupoles.
+\item
+Twiss parameters measured at CTS with screen CT.MTV0550 were checked
+and \textbeta-beating was corrected using the quadrupoles located downstream of CT.MTV0435.
+It is important to mention here that often the results of quadrupole scans in screens
+CT.MTV0435 and CT.MTV0550 did not match. 
+Of course the optics was verified with response matrix and 
+the profiles monitors were also showing no issue with callibration.
+It was CT.MTV0550 that was eventually more trusted because
+measurements with CT.MTV0435 were often changing for different ranges of the scans.
+The most plausible explanation of the issue is related to strongly diverging beam at this location
+(\textalpha-parameter bigger then 5) what made finding good range for the scan very difficult.
+For a good scan a waist needs to be created in the probed plane and its minimum 
+swept in steps from one side of the screen to the other.
+Maximum range of phase advances needs to be probed to contain well the phase space ellipse.
+However, if the beam has big \textalpha-parameter the produced waist is very steep.
+It has two adverse consequences. 
+First, the minimum beam size is very small reaching the limit of granularity of the CCD camera
+and the realtive error of beam size measurement becomes large.
+Second, at some locations the beam size quickly becomes too large to fit within the aperture.
+This eventually limits range of scanned phase advances.
+The situation becomes even more difficult if in the opposite plane absolute of \textalpha-function
+is also large because the beam is likely to become too big also in this plane.
+\item
+The energy spread was measured and phases of the accelerating structures 
+in the second part of the linac were tuned to minimize it.
+\end{enumerate}

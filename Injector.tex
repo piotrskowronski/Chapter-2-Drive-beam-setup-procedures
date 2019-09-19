@@ -1,0 +1,183 @@
+\section{Injector}
+
+Injector setup started with magnetic elements set according to 
+the design values. First, 3~GHz beam was commissioned, from which 1.5~GHz was derived.
+The aim of the injector setup was a good capture efficiency, shortest bunches with energy spready below 1\%.
+All three parameters could not be maximized simoultaneusly, therefore a compromise had to be found.
+First, maximum caputure and transmission was targeted. 
+In the second step a setting with a minimum energy spread was found. 
+Finally, phases were shifted towards setting giving shorter bunches.
+The ultimate goal was achieving minimum energy spread at the end of the linac, which depended on both, 
+initial bunch length and energy spread.
+Therefore, the final injector tunining was performed with the measurements at CTS.
+It was also important to have small sensitivity of the produced beam current
+on the RF phases and amplitudes. Otherwise jitter and drift of the RF sources 
+were transmitted to the beam energy via the beam current, which is a consequence of 
+the fully loaded linac operation. 
+
+
+Naturally, for the machine safety the initial setup was carried with
+the shortest pulse visible for the diagnostic devices, which was around 250~ns.
+%For the machine safety shortest pulse visible for the diagnostic devices was used, that was around 250~ns.
+In all accelerating structures, but not in the pre-buncher and buncher,
+RF phase had a parabolic shape due to the pulse compression.
+For the initial steps the part around the maximum of the parabola was selected to avoid 
+phase and energy variation along the beam pulse.
+
+The bend \texttt{CL.BHA0425-S}, redirecting the beam to the the first dump in spectrometer line on girder 4, 
+was set according to the expected beam energy at this location (between -120~A and -140~A for the 4~A drive beam).
+The setup procedure for the 3~GHz bunch spacing comprised the following steps:
+\begin{enumerate}
+\item 
+The beam was threaded until the pre-bunching cavity \texttt{CL.PBU0245} using one-to-one steering. 
+Its tranverse profile was verified with \texttt{CL.MTV0165} screen and if needed eventually solenoids and steerers were adjusted. 
+\item
+Attenuator of the prebuncher was set to minimum becuase 
+for 3~GHz bunch spacing the simulations predicted, and the experience confirmed it, 
+that higher the power shorter the bunch is.
+Phase of pre-buncher was tuned to obtain maximum %(knob \texttt{CK.PBU0245-PHAS})
+signal in \texttt{CL.BPR0290W}, which corresponded to the shortest bunch length.
+This device was also sensitive to beam current and position, so it had to be watched that they do not change during the optimizations.
+\item 
+The orbit was corrected until the first accelerating cavity \texttt{CL.ACS0305}.
+\item 
+Its phase was tuned using the MKS03 phase loop knob \texttt{CK.MKS03-PLOOP} to provide maximum loading visible on signal \texttt{CK.PEI0305A}.
+\item 
+The setting of the spectrometer bend \texttt{CL.BHA0425-S} was adjusted to find the beam in the center of the screen \texttt{CLS.MTV0440}
+\item
+Solenoids (girders 1 to 3) and quadrupoles (girder 4) were adjusted to provide maximum transmission 
+as recorded by the BPE's and BPM's.
+\item
+Quardupoles were set to obtain the most narrow in the horizontal plane spot on CLS.MTV0440, 
+but in the vertical plane still well confined within the screen aperture. 
+It was done in order to minimize the contribution of the $\beta$-function to 
+measured total beam size in the spectrometer that was needed for energy spread optimizations.
+\item
+Energy spread was measured using the segmented dump device CLS.SDU0442 in the spectrometer. 
+Scans in function of the MKS03 klystron phase were done to find a minimum.
+\item
+The beam was sent towards the linac: quadrupoles and the bends of the compressor chicane 
+(\texttt{CL.BHA0425-S} and \texttt{CL.BHA0430-S}) were set to the design values.
+Steerers and eventually quadrupoles were adjusted to maximize the transmission 
+up to position monitor CL.BPM0502. 
+In case of difficulties beam profile measurement with screen CLS.MTV0500 
+was also used in the manual optimization.
+\item
+Phase of accelerating structures at girder 3 and amplitude of the compressing chicane was adjusted to minimize 
+the bunch length (maximize BPR waveguid signal \texttt{CL.BPR0475W}) while keeping energy spread below 1\% r.m.s.
+as measured with segmented dump \texttt{CLS.SDU0442}. 
+Usually it was around 7 degrees from the full beam loading condition.
+\item 
+The pulse length was extended to its maximum, i.e. 1.3~\textmu s. 
+Phase program of klystron MKS02 was set identical to measured phase sag of MKS03 compressed pulse. 
+Flattness of the beam energy and of the bunch length along the pulse was verified with 
+the segmenented dump and \texttt{CL.BPR0475W}, respectively.
+Because the callibration of the phase measurements and phase shifters was not perferct
+it needed further adjustment. The most efficient was autumatic precudure
+that corrected the MKS02 phase to find \texttt{CL.BPR0475W} constant.
+\item
+Quadrupole scan with CLS.MTV0500 measured Twiss parameters at CL.QFA0460.
+Steering through the solenoids and their settings were adjusted to minimize the emittance. 
+\item
+Using MADX model the measured Twiss parameters were propagated to the exit of the last solenoid.
+MADX was also used to rematch the quadrupoles settings to correct the beta-beating.
+Usually 2 or 3 iterations were needed to find satisfactory result. 
+\end{enumerate}
+
+1.5~GHz bunch spacing was enabled powering the sub-harmonic bunchers.
+Initially phase switches were disabled. 
+The goal was to have minimum number of differences between the 3 and 1.5~GHz beams
+to easily switch between the two and to avoid doubling the time for the setup.
+This way also any improvement found with one type of the beam 
+could be immediately copied to the other one.
+
+\begin{enumerate}
+\item
+SHB1 was powered with the nominal power. 
+Its phase was adjusted to maximize signal on \texttt{CL.BPR0290W} to 
+assure that maximum beam current is kept captured and minimum number of electrons
+is back scattered what eventually was disturibing readout of many signals.
+\item
+SHB2 was powered with the nominal power. 
+The design predicted that the optimum phase should correspond to more or less no beam loading condition.
+The phase was tuned to find maximum signal at the output of SHB3
+because when this structure was not powered the maximum amplitude of the produced RF 
+corresponded to the shortest bunches in this cavity. 
+\item
+Input of the 3~GHz pre-buncher was attenuated so it could be used as a bunch length monitor.
+\item
+SHB3 was powered and its phase tuned to find maximum beam loading from the 3~GHz pre-buncher.
+\item
+After powering back the pre-buncher, phases of all SHBs were shifted together to find maximum
+of \texttt{CL.BPR0290W} signal.
+%Of course there were two setting fullfilling this condition. 
+%The one producing higher signal in \texttt{CL.BPR0290W} was selected.
+\item
+Amplitude and phase of prebuncher, as well as of the three SHBs and klystron MKS02 (powering bre-buncher and buncher),
+were scanned to find best caputure and shortest bunches at the end of the injector in \texttt{CL.BPR0475W}
+while keeping the energy spread reasonably small.
+It was an iterative procedure involving repeated energy spready and bunch length measurements
+while varying each parameter in vicinity of its set point.
+\item
+The gun emmission was tuned to find the same beam current in the linac as in the 3~GHz reference.
+If the change was substantial (more then 5\%) the setup procedure had to be repeated to assure the optimum phase settings. 
+\item
+Twiss parameters were verified with quadrupole scans at girder 5 and 10 
+and eventually beta beating was corrected.
+\item
+Phase switches in SHBs were enabled and its setup procuedure is detailed further down. 
+A priori it should not change the beam dynamics,
+but in reality the injector had to be further optimized to reduce transient effects occuring after each switch.
+\item
+The final fine tuning of the injector was done minimizing the energy spread measured 
+at the end of the linac in CTS segmeneted dump.
+\end{enumerate}
+
+
+\todo[inline]{Talk to davide http://elogbook.cern.ch/eLogbook/eLogbook.jsp?date=20160411\&lgbk=100}
+The procedure 
+%http://elogbook.cern.ch/eLogbook/eLogbook.jsp?shiftId=1073715
+% the same as above
+%http://elogbook.cern.ch/eLogbook/eLogbook.jsp?date=20160411&lgbk=100
+
+1) first SHB with switches. not touching phase. 
+
+remove switches on second SHB. 
+
+remove RF from third SHB. 
+
+-> verify zero crossing on loading of second SHB. 
+
+-> measure signal on third SHB. 
+
+
+2) start switches on second SHB. 
+
+-> find the 180-side to set second SHB2 to maximise loading on third TWT 
+
+2b) remove swithces on second SHB and re-verify zero crossing to the new phasee if you needed to change it. 
+
+3) without the beam, with switches back on second SHB, vefify the synchronization between switches induced by the beam and the one of the RF. 
+The same with beam on. 
+
+4) insert third SHB without switches. 
+
+-> find zero crossing. 
+
+4b) attenuate the prebuncher and log the power produced by the beam in this situation. 
+
+4c) switch off the beam and start switches on third TWT. 
+
+-> verify timing of switches in third SHB. 
+
+5) with switches and RF in all SHB start the beam 
+
+-> verify the 180-degree phase of third TWT by looking at output of prebuncher. 
+
+6) set back prebuncher. 
+
+
+
+
+
+
